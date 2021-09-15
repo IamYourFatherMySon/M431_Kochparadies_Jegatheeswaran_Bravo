@@ -1,0 +1,72 @@
+html, body{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-image: url("../imagesselbst/spices.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'gruppo', cursive;
+}
+h1, h2, p, li {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+h2{
+  font-size: 2.5em;
+}
+h1{
+  text-align: center;
+  font-size: 100px;
+  font-weight: 100;
+}
+#fertig{
+  font-size: 100px;
+  text-align: center;
+  font-weight: 100;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-size: large;
+}
+a:hover{
+  opacity: 0.7;
+  padding-top: 1.5px;
+}
+ul li, ol li{
+  font-size: 1.8rem;
+}
+img{
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 10px;
+}
+.center{
+  margin-left: 4.5em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  border-radius: 10px;
+}
+#flex h3{
+  font-size: 1.8rem;
+  padding-left: 0.8em;
+}
+#container{
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: hsla(100, 100%, 100%, 0.9);
+}
+#flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#grösse{
+  font-size: 1.5em;
+  font-weight: 1000;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <title>Kochparadies</title>
+    <link rel="icon" type="image/png" sizes="32x32" href="images/cooking.png">
+    <meta name = "viewpoint" content ="width=device-width,initial-scale=1.0, user-scalable=no"> 
+    <meta charset="utf-8">
+    <meta name="author" content="Luca Bravo, Jeren Jegatheeswaran">
+    <meta name="description" content="Diese Seite bietet einige Rezepte zum nachkochen."/> 
+    <link href="../css/kochkursStyle.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Gruppo&family=Mukta+Mahee&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="container">
+      <header>
+        <h1>Kochparadies</h1>
+      </header>
+      <main>
+        <h2 class="padding">Kochkurs</h2>
+          <p class="padding">
+            Falls du dich nun durch die Kochrezepte inspiriert fühlst, kannst du dich für unseren Kochkurs einschreiben<br>
+            In diesem Kochkurs werden wir zusammen eines der Rezepte zusammen nachkochen und Schritt für Schritt erklären wir dir, wie man die Gerichte am besten kocht.<br>
+            Alles was du tun musst, ist dich registrieren, ein Rezept und ein Datum auswählen und schon bis du ready!<br>
+            Wir wünschen dir viel Spass beim Kochen!
+          </p>
+          <div id="form" class="registration-form">
+            <form method="post" action="../register">
+              <h2>Registrieren</h2>
+              <label for="vorname">Vorname*: </label><br>
+              <input type="text" name="vorname"><br>
+              <label for="nachname">Nachname*: </label><br>
+              <input type="text" name="nachname"><br>
+              <label for="email">Email*: </label><br>
+              <input type="email" name="email"><br>
+              <label for="passwort">Passwort*: </label><br>
+              <input type="password" name="passwort"><br>
+              <input id="submit" type="submit" value="Registrieren">
+            </form>
+            <p id="login">Schon registriert? <a href="login.html">Einloggen</a></p>
+          </div>
+        </main>
+        <footer>
+          <div id="flex">
+            <ul>
+              <li><a class="grösse" href="aboutus.html">About Us</a></li>
+              <li><a class="grösse" href="impressum.html">Impressum</a></li>
+              <li><a class="grösse" href="../home.html">Home</a></li>
+            </ul>
+          </div>
+          </footer>
+      </div>
+  </body>
+</html>

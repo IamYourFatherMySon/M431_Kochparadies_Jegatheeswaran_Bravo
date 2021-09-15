@@ -1,0 +1,69 @@
+html, body{
+  padding: 0;
+  margin: 0;
+}
+body{
+  background-image: url("../imagesselbst/jason-briscoe-GliaHAJ3_5A-unsplash.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: 'gruppo', cursive;
+}
+h1, h2, h3, p {
+  margin-left: 10px;
+}
+h2{
+  font-size: 2.5em;
+  text-align: center;
+}
+h3{
+  font-size: 2em;
+  margin-bottom: 0.001em;
+}
+p{
+  font-size: 1.8rem;
+}
+p a{
+  font-size: 1.8rem;
+}
+#quellen{
+  text-align: left;
+}
+h1{
+  text-align: center;
+  font-size: 100px;
+  font-weight: 100;
+}
+a{
+  text-decoration: none;
+  color: black;
+  font-size: large;
+}
+li a{
+  font-size: 1.8rem;
+}
+a:hover{
+  opacity: 0.7;
+  padding-top: 1.5px;
+}
+ul li, ol li{
+  font-size: 1.8rem;
+  list-style: none;
+}
+#container{
+  display: flex;
+  flex-direction: column;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: hsla(100, 100%, 100%, 0.9);
+}
+.flex{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+#grösse{
+  font-size: 0.8em;
+  font-weight: 1000;
+}
