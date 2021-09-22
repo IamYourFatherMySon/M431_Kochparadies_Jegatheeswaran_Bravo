@@ -5,6 +5,8 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 const indexRouter = require('./router.js');
 const router = require('./router.js');
+const conn = require('./database.js');
+const { response } = require('express');
  
 const app = express();
  
@@ -25,6 +27,7 @@ app.get('', (request, response) => {
   response.sendFile(__dirname + '/home.html');
 
 });
+
 
 app.use('/api', router);
 

@@ -1,11 +1,13 @@
 const express = require('express');
 const router = express.Router();
 const db  = require('./database');
+const session = require('express-session');
 const { signupValidation } = require('./validation');
 const { validationResult } = require('express-validator');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
- 
+
+
 router.post('/register', signupValidation, (req, res, next) => {
   console.log(req);
   db.query(
@@ -37,9 +39,7 @@ router.post('/register', signupValidation, (req, res, next) => {
                     msg: err
                   });
                 }
-                return res.status(201).send({
-                  msg: 'The user has been registerd with us!'
-                });
+                return res.redirect('/pages/login.html');
               }
             );
           }
@@ -47,6 +47,29 @@ router.post('/register', signupValidation, (req, res, next) => {
       }
     }
   );
+});
+
+router.post('/auth', (req, res) => {
+  const password = req.body.passwort;
+  const email = req.body.email;
+  var passwortHash = '$2a$10$TWAyYSsnPjOgPifMJ1rUOuruaojN9.h8P20OIuxgari/okGt/7Kfy';
+  
+  if(email && password){
+    db.query('SELECT * FROM registration WHERE email = ? AND passwort = ?', [email,password],(error, result, fields) => {
+    if(bcrypt.compareSync(password, passwortHash))
+    {
+        /*req.session.loggedin = true;
+        req.session.email = email;*/
+        res.redirect('/');
+      }else{
+        res.send('Falsche Mail und/oder Passwort');
+      }
+      res.end();
+    });
+  }else{
+    res.send('Bitte Email und Passwort angeben');
+    res.end();
+  }
 });
  
  
