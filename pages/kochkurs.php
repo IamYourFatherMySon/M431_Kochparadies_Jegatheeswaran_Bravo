@@ -49,15 +49,16 @@
             if(strlen($email) > 50){ 
                       $error[] = 'Email: Maximale Länge 50 Buchstaben';
                   }
+            if(strlen($password) < 5){  
+                      $error[] = 'Das Passwort muss aus mindestens 6 Zeichen bestehen.';
+                  }      
             if($passwordConfirm ==''){
                       $error[] = 'Bitte Passwort bestätigen.';
                   }
                   if($password != $passwordConfirm){
                       $error[] = 'Passwörter stimmen nicht überein.';
                   }
-                    if(strlen($password) < 5){ // min 
-                      $error[] = 'Das Passwort muss aus mindestens 6 Zeichen bestehen.';
-                  }
+                    
                   $sql = "select * from registration where (email='$email');";
                 $res=mysqli_query($dbc,$sql);
               if (mysqli_num_rows($res) > 0) {
@@ -73,7 +74,7 @@
                     $options = array("cost" => 4);
                     $password = password_hash($password,PASSWORD_BCRYPT,$options);
                       
-                    $result = mysqli_query($dbc,"INSERT into registation values('','$vorname','$nachname','$email','$password','$date')");
+                    $result = mysqli_query($dbc,"INSERT into registration values('','$vorname','$nachname','$email','$password','$date')");
           
                     if($result)
               {
@@ -98,17 +99,19 @@
             <div class="successmsg"><span style="font-size:100px;">&#9989;</span> <br> You have registered successfully . <br> <a href="login.php" style="color:#fff;">Login here... </a> </div>
               <?php } else { ?>
           <div id="form" class="registration-form">
-            <form method="post" action='/api/register'>
+            <form method="post" action=''>
               <h2>Registrieren</h2>
               <label for="vorname">Vorname*: </label><br>
-              <input type="text" name="vorname"><br>
+              <input type="text" name="vorname" value="<?php if(isset($error)){ echo $_POST['vorname'];}?>" required=""><br>
               <label for="nachname">Nachname*: </label><br>
-              <input type="text" name="nachname"><br>
+              <input type="text" name="nachname" value="<?php if(isset($error)){ echo $_POST['nachname'];}?>" required=""><br>
               <label for="email">Email*: </label><br>
-              <input type="email" name="email"><br>
+              <input type="email" name="email" value="<?php if(isset($error)){ echo $_POST['email'];}?>" required=""><br>
               <label for="passwort">Passwort*: </label><br>
-              <input type="password" name="passwort"><br>
-              <input id="submit" type="submit" value="Registrieren">
+              <input type="password" name="passwort" required=""><br>
+              <label for="passwordConfirm">Confirm Password*: </label>
+              <input type="password" name="passwordConfirm" class="form-control" required=""><br>
+              <input id="submit" type="submit" name="signup" value="Registrieren">
             </form>
             <?php } ?> 
             <p id="login">Schon registriert? <a href="login.html">Einloggen</a></p>
