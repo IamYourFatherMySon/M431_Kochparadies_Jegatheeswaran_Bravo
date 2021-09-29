@@ -119,7 +119,7 @@
             <ul>
               <li><a class="grösse" href="aboutus.html">About Us</a></li>
               <li><a class="grösse" href="impressum.html">Impressum</a></li>
-              <li><a class="grösse" href="/">Home</a></li>
+              <li><a class="grösse" href="../home.html">Home</a></li>
             </ul>
           </div>
           </footer>
