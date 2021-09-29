@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require_once('../php/config.php'); ?>
 <html lang="de">
   <head>
     <title>Kochparadies</title>
@@ -24,6 +25,30 @@
             Alles was du tun musst, ist dich registrieren, ein Rezept und ein Datum auswählen und schon bis du ready!<br>
             Wir wünschen dir viel Spass beim Kochen!
           </p>
+          <?php
+          if(isset($_POST['signup'])){
+            extract($_POST);
+            if(strlen($vorname) < 3){
+              $error[] = 'Der Vorname sollte aus mindestens 3 Buchstaben bestehen.';
+            }
+            if(strlen($vorname) > 30){
+              $error[] = 'Der Vorname sollte nicht länger als 30 Buchstaben sein.';
+            }
+            if(!preg_match("/^[A-Za-z _]*[A-Za-z ]+[A-Za-z _]*$/", $vorname)){
+              'Ungültiger Vorname. Bitte gib nur Buchtsaben ein.';
+            }
+            if(strlen($nachname) < 3){
+              $error[] = 'Der Nachname sollte aus mindestens 3 Buchstaben bestehen.';
+            }
+            if(strlen($nachname) > 30){
+              $error[] = 'Der Nachname sollte nicht länger als 30 Buchstaben sein.';
+            }
+            if(!preg_match("/^[A-Za-z _]*[A-Za-z ]+[A-Za-z _]*$/", $nachname)){
+              'Ungültiger Nachname. Bitte gib nur Buchtsaben ein.';
+            }
+          }
+
+          ?>
           <div id="form" class="registration-form">
             <form method="post" action='/api/register'>
               <h2>Registrieren</h2>
