@@ -74,7 +74,7 @@
                     $options = array("cost" => 4);
                     $password = password_hash($password,PASSWORD_BCRYPT,$options);
                       
-                    $result = mysqli_query($dbc,"INSERT into registration values('','$vorname','$nachname','$email','$password','$date')");
+                    $result = mysqli_query($dbc,"INSERT into registration values('','$vorname','$nachname','$email','$password')");
           
                     if($result)
               {
@@ -96,7 +96,7 @@
           ?>
           <?php if(isset($done)) 
             { ?>
-            <div class="successmsg"><span style="font-size:100px;">&#9989;</span> <br> You have registered successfully . <br> <a href="login.php" style="color:#fff;">Login here... </a> </div>
+            <div class="successmsg"><span style="font-size:100px;">&#9989;</span> <br> Du hast dich erfolgreich registreirt. <br> <a href="login.php" style="color:#fff;">Login here... </a> </div>
               <?php } else { ?>
           <div id="form" class="registration-form">
             <form method="post" action=''>
@@ -107,14 +107,14 @@
               <input type="text" name="nachname" value="<?php if(isset($error)){ echo $_POST['nachname'];}?>" required=""><br>
               <label for="email">Email*: </label><br>
               <input type="email" name="email" value="<?php if(isset($error)){ echo $_POST['email'];}?>" required=""><br>
-              <label for="passwort">Passwort*: </label><br>
-              <input type="password" name="passwort" required=""><br>
+              <label for="password">Passwort*: </label><br>
+              <input type="password" name="password" required=""><br>
               <label for="passwordConfirm">Confirm Password*: </label>
               <input type="password" name="passwordConfirm" class="form-control" required=""><br>
               <input id="submit" type="submit" name="signup" value="Registrieren">
             </form>
             <?php } ?> 
-            <p id="login">Schon registriert? <a href="login.html">Einloggen</a></p>
+            <p id="login">Schon registriert? <a href="login.php">Einloggen</a></p>
           </div>
         </main>
         <footer>

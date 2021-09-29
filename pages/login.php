@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<?php require_once("../php/config.php"); ?>
 <html lang="de">
   <head>
     <title>Kochparadies</title>
@@ -15,13 +16,19 @@
     <div id="container">
       <main>
           <div id="form">
-            <form method="post" action='/api/auth'>
+            <form method="post" action='login_process.php'>
               <h2>Login</h2>
+              <?php 
+              if(isset($_GET['loginerror'])){
+                $loginerror = $_GET['loginerror'];
+              }
+              if(!empty($loginerror)){  echo '<p class="errmsg">Ungütlige anmeldedaten, Bitte versuchen Sie es erneut..</p>'; }
+              ?>
               <label for="email">Email*: </label><br>
-              <input type="email" name="email"><br>
-              <label for="passwort">Passwort*: </label><br>
-              <input type="password" name="passwort"><br>
-              <input id="submit" type="submit" value="Login">
+              <input type="email" name="email" required=""><br>
+              <label for="password">Passwort*: </label><br>
+              <input type="password" name="password" required=""><br>
+              <input id="submit" type="submit" value="Login" name="login">
             </form>
           </div>
         </main>
