@@ -2,7 +2,7 @@ html {
   scroll-behavior: smooth;
 }
 body{
-  background-image: url("/imagesselbst/jason-briscoe-GliaHAJ3_5A-unsplash.jpg");
+  background-image: url("../imagesselbst/jason-briscoe-GliaHAJ3_5A-unsplash.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-attachment: fixed;
