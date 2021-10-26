@@ -56,6 +56,30 @@
         ?>
       </tbody>  
     </table>
+    <form method="post" action="buchen.php">
+  <fieldset>
+  <legend>Wählen Sie die Nummer des Kochkurses aus</legend>
+    <?php
+      $sql2 = "SELECT * FROM kochkurse ORDER BY zeitpunkt";
+      if($result2 = $dbc->query($sql2)){
+        if($result2->num_rows){
+          $ds_gesamt2 = $result2->num_rows;
+          $result2->free();
+        }
+        if($result2 = $dbc->query($sql2)){
+          while($datensatz2 = $result2->fetch_object()){
+            $daten2[] = $datensatz2;
+          }
+        }
+      }
+        foreach ($daten2 as $inhalt2) {
+        ?>
+       <input type="radio" id=<?php echo $inhalt2->id?> name="kochkurs" value=<?php echo $inhalt2->id?>>
+       <label for=<?php echo $inhalt2->id?>><?php echo $inhalt2->id?></label> 
+          <?php } ?>
+    </fieldset>
+    <input type="submit" value="Buchen">
+        </form>
     <h2>Deine bereits gebuchten kochkurse</h2>
     <table>
       <thead>
@@ -103,17 +127,14 @@
         ?>
       </tbody>  
     </table>
-    <p> 
-      <a href="reset-password.php" class="btn btn-warning">Passwort zurücksetzen</a></p>
       <p>
         <a href="../php/logout.php" class="btn btn-danger ml-3">Logout</a>
     </p>
     <footer>
         <div id="flex">
           <ul>
-            <li><a class="grösse" href="pages/aboutus.html">About Us</a></li>
-            <li><a class="grösse" href="pages/impressum.html">Impressum</a></li>
-            <li><a class="grösse" href="pages/kochkurs.php">Kochkurs</a></li>
+            <li><a class="grösse" href="aboutus.html">About Us</a></li>
+            <li><a class="grösse" href="impressum.html">Impressum</a></li>
           </ul>
         </div>
         </footer>
