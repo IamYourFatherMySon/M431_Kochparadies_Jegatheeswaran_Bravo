@@ -98,7 +98,7 @@
     </fieldset>
     <input type="submit" value="Buchen" name="buchen">
         </form>
-    <h2>Deine bereits gebuchten kochkurse</h2>
+    <h2>Deine bereits gebuchten Kochkurse</h2>
     <table>
       <thead>
         <tr>
