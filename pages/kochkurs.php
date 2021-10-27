@@ -96,7 +96,7 @@
           ?>
           <?php if(isset($done)) 
             { ?>
-            <div class="successmsg"><span style="font-size:100px;">&#9989;</span> <br> Du hast dich erfolgreich registreirt. <br> <a href="login.php" style="color:#fff;">Login here... </a> </div>
+            <div class="successmsg"><span style="font-size:100px;">&#9989;</span> <br> Du hast dich erfolgreich registriert. <br> <a href="login.php" style="color:#fff;">Login here... </a> </div>
               <?php } else { ?>
           <div id="form" class="registration-form">
             <form method="post" action=''>

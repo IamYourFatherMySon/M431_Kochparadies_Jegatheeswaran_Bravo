@@ -59,7 +59,7 @@
 
                       if(mysqli_stmt_fetch($stmt)){
                         if(password_verify($password, $hashed_password)){
-                          session_start();
+
 
                           $_SESSION['loggedin'] = true;
                           $_SESSION['id'] = $id;

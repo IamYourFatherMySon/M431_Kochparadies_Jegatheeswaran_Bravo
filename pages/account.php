@@ -5,6 +5,7 @@
  {
    unset($_SESSION['eingeloggt']);
  } 
+ $id = $_SESSION['id'];
 ?>
 <!DOCTYPE html>
 <html lang="de">  
@@ -56,7 +57,7 @@
         ?>
       </tbody>  
     </table>
-    <form method="post" action="buchen.php">
+    <form method="post" action="">
   <fieldset>
   <legend>Wählen Sie die Nummer des Kochkurses aus</legend>
     <?php
@@ -76,9 +77,26 @@
         ?>
        <input type="radio" id=<?php echo $inhalt2->id?> name="kochkurs" value=<?php echo $inhalt2->id?>>
        <label for=<?php echo $inhalt2->id?>><?php echo $inhalt2->id?></label> 
-          <?php } ?>
+          <?php 
+          } 
+          if(isset($_POST['buchen'])){ 
+            $value = $_POST["kochkurs"];
+            $date=date('Y-m-d');
+              
+
+            $result = mysqli_query($dbc,"INSERT into kochkurs_user values('','$id','$value','$date')");
+  
+            if($result)
+          {
+          $done=2; 
+          }
+          else{
+            $error[] ='Failed : Etwas ist schiefgelaufen';
+          }
+          }
+          ?>
     </fieldset>
-    <input type="submit" value="Buchen">
+    <input type="submit" value="Buchen" name="buchen">
         </form>
     <h2>Deine bereits gebuchten kochkurse</h2>
     <table>
@@ -94,10 +112,11 @@
       <?php
       $sqlBuchung = "SELECT r.id,r.vorname, k.bezeichnung, ku.gebucht_am FROM registration r 
       join kochkurs_user ku on ku.user_id = r.id
-      join kochkurse k on k.id = ku.kochkurs_id";
+      join kochkurse k on k.id = ku.kochkurs_id
+      where r.id = $id";
       if($res = $dbc->query($sqlBuchung)){
         if($res->num_rows){
-          $ds_gesamtBuchung = $result->num_rows;
+          $ds_gesamtBuchung = $res->num_rows;
           $res->free();
         }
         if($res = $dbc->query($sqlBuchung)){
@@ -125,6 +144,7 @@
         <?php
         }
         ?>
+
       </tbody>  
     </table>
       <p>
